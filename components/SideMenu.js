@@ -41,6 +41,7 @@ export const SideMenu = (props) => {
                         </ListItemButton>
                     </ListItem>
                 </Link>
+                <hr className="mx-3" />
                 <Link href="/codingBlog">
                     <ListItem disablePadding>
                         <ListItemButton className=' hover:text-white hover:bg-gradient-to-r hover:from-sky-400 hover:to-violet-600'>
@@ -48,6 +49,7 @@ export const SideMenu = (props) => {
                         </ListItemButton>
                     </ListItem>
                     </Link>
+                    <hr className="mx-3" />
                     <Link href="/spaceBlog">
                     <ListItem disablePadding>
                         <ListItemButton className=' hover:text-white hover:bg-gradient-to-r hover:from-sky-400 hover:to-violet-600'>
@@ -55,13 +57,14 @@ export const SideMenu = (props) => {
                         </ListItemButton>
                     </ListItem>
                     </Link>
+                    <hr className="mx-3" />
             </List>
         </Box>
     );
 
     return (
         <div>
-            <Button className={`${props.display}`} onClick={toggleDrawer('right', true)}><img src="/menu.svg" className="w-7 h-auto" /></Button>
+            <Button onClick={toggleDrawer('right', true)} style={{"display":`${props.display}`}}><img src="/menu.svg" className="w-7 h-auto" /></Button>
             <Drawer
                 anchor={'right'}
                 open={state['right']}
