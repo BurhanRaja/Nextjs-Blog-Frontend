@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react"
 import { motion } from "framer-motion"
 import Link from 'next/link'
-import Navbar from "../components/Navbar"
 import LoadingScreen from "../components/LoadingScreen"
 
 export default function Home() {
@@ -33,7 +32,6 @@ export default function Home() {
     <div>
       {!loading ? (
         <Fragment>
-          <Navbar sideMenuVisible='none' />
           <div className='bg-white'>
             <div className="flex">
               <motion.div className='coding w-1/2 bg-gray-500' variants={container}>

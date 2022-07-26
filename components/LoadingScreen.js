@@ -3,11 +3,11 @@ import styled from "styled-components"
 
 const LoadingScreen = () => {
     return (
-        <Screen className="backdrop-blur-md">
+        <Screen className="backdrop-blur-md bg-gray-800">
             <Balls>
-                <div className="ball one"></div>
-                <div className="ball two"></div>
-                <div className="ball three"></div>
+                <div className="ball bg-red-600 one"></div>
+                <div className="ball bg-yellow-600 two"></div>
+                <div className="ball bg-blue-600 three"></div>
             </Balls>
         </Screen>
     )
@@ -45,7 +45,6 @@ const Balls = styled.div`
         height: 20px;
         width: 20px;
         border-radius: 50%;
-        background: #1b5299;
         margin: 0 6px 0 0;
         animation: oscillate 0.7s ease-in forwards infinite;
     }

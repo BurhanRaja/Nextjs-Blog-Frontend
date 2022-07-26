@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import LandingPage from '../components/LandingPage'
 import LoadingScreen from '../components/LoadingScreen'
-import Navbar from '../components/Navbar'
 
 const spaceBlog = () => {
 
@@ -22,7 +21,6 @@ const spaceBlog = () => {
         <div>
             {!loading ? (
                 <Fragment>
-                    <Navbar />
                     <div className='bg-gray-800'>
                         <LandingPage title={title} video={video} description={description} />
                         <section className="text-gray-600 body-font">
