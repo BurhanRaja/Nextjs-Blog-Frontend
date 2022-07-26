@@ -5,7 +5,10 @@ const login = () => {
     return (
         <div>
             <section className="h-screen">
-                <div className="container px-6 py-12 h-full">
+                <div className='text-center'>
+                    <h1 className='text-3xl mt-10 font-semibold'>Login</h1>
+                </div>
+                <div className="container px-6 pb-10 pt-1 h-full">
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                         <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                             <img
@@ -71,7 +74,7 @@ const login = () => {
                             </form>
                             <div className='mt-5 text-sm flex justify-center'>
                                 <span>Don't have an account?</span>
-                                <Link href='/SignUp'><a className='text-blue-600 ml-2 hover:cursor-pointer'>Create Account</a></Link>
+                                <Link href='/signup'><a className='text-blue-600 ml-2 hover:cursor-pointer'>Create Account</a></Link>
                             </div>
                         </div>
                     </div>

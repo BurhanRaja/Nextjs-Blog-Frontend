@@ -8,8 +8,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Close } from '@mui/icons-material';
 import Link from 'next/link';
+import AuthBtn from "./AuthBtn"
 
-export const SideMenu = (props) => {
+export const SideMenu = () => {
     const [state, setState] = useState({
         right: false,
     });
@@ -58,13 +59,16 @@ export const SideMenu = (props) => {
                     </ListItem>
                     </Link>
                     <hr className="mx-3" />
+                    <ListItem disablePadding className='justify-center'>
+                        <AuthBtn display="block" margin="2rem 1rem" />
+                    </ListItem>
             </List>
         </Box>
     );
 
     return (
         <div>
-            <Button onClick={toggleDrawer('right', true)} style={{"display":`${props.display}`}}><img src="/menu.svg" className="w-7 h-auto" /></Button>
+            <Button onClick={toggleDrawer('right', true)}><img src="/menu.svg" className="w-7 h-auto" /></Button>
             <Drawer
                 anchor={'right'}
                 open={state['right']}

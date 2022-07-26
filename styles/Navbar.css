@@ -1,0 +1,5 @@
+@media only screen and (max-width: 520px) {
+    .login-btn, .signup-btn {
+        display: none;
+    }
+} 
