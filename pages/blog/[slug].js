@@ -28,19 +28,8 @@ const Slug = ({ post }) => {
         </div>
       </div>
       <div className='content flex flex-col justify-center my-7 mb-16 text-base' style={{ "marginLeft": "15vw", "marginRight": "15vw" }}>
-        <div className="">
+        <div className=" text-lg">
           <ReactMarkdown rehypePlugins={[rehypeRaw]} components={CodeBlock}>{post.attributes.blogContent}</ReactMarkdown>
-        </div>
-        <div className='comments mt-8'>
-          <h2 className='text-2xl'>Comments</h2>
-          <div>
-            <form className='mt-4'>
-              <div className="mb-3">
-                <label htmlFor="exampleFormControlTextarea1" className="form-label inline-block mb-2 text-gray-700">Comment Here</label>
-                <textarea className="form-control w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded" id="exampleFormControlTextarea1" rows="3" col="5"></textarea>
-              </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>
@@ -50,7 +39,7 @@ const Slug = ({ post }) => {
 
 export async function getServerSideProps(context) {
   const host = "http://localhost:1337"
-  const api_key = process.env.NEXT_PUBLIC_PRIVATE_KEY
+  const api_key = process.env.NEXTAUTH_SECRET
 
   const response = await fetch(`${host}/api/posts?filters[slug]=${context.query.slug}&populate=*`, {
     method: "GET",
