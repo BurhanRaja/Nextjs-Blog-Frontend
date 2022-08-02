@@ -8,7 +8,7 @@ import rehypeRaw from 'rehype-raw';
 // import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 // import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-const spaceBlog = ({ posts, liked, likeCount, handleLike }) => {
+const SpaceBlog = ({ posts, liked, likeCount, handleLike }) => {
 
     const [loading, setLoading] = useState(true)
 
@@ -90,4 +90,4 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default spaceBlog
+export default SpaceBlog

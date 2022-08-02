@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const login = () => {
+const Login = () => {
     return (
         <div>
             <section className="h-screen">
@@ -76,4 +76,4 @@ const login = () => {
     )
 }
 
-export default login
+export default Login

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-const signup = () => {
+const Signup = () => {
 
     return (
         <div>
@@ -62,4 +62,4 @@ const signup = () => {
 }
 
 
-export default signup
+export default Signup
