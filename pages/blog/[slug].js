@@ -38,10 +38,10 @@ const Slug = ({ post }) => {
 
 
 export async function getServerSideProps(context) {
-  const host = "http://localhost:1337"
   const api_key = process.env.NEXTAUTH_SECRET
+  const URL = `${process.env.NEXT_PUBLIC_API_URL}/api/posts?filters[slug]=${context.query.slug}&populate=*`
 
-  const response = await fetch(`${host}/api/posts?filters[slug]=${context.query.slug}&populate=*`, {
+  const response = await fetch(URL, {
     method: "GET",
     headers: {
       "Content_Type": "application/json",

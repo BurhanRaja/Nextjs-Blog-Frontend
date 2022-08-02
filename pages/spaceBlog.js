@@ -5,8 +5,10 @@ import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import CodeBlock from "../components/CodeBlock"
 import rehypeRaw from 'rehype-raw';
+// import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+// import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-const spaceBlog = ({ posts }) => {
+const spaceBlog = ({ posts, liked, likeCount, handleLike }) => {
 
     const [loading, setLoading] = useState(true)
 
@@ -39,8 +41,8 @@ const spaceBlog = ({ posts }) => {
                                                 <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={item.attributes.image.data.attributes.name} alt="blog" />
                                                 <div className="p-6">
                                                     <h1 className="title-font text-lg font-bold text-white mb-3">{item.attributes.title}</h1>
-                                                    <ReactMarkdown className="leading-relaxed text-gray-200 mb-3" rehypePlugins={[rehypeRaw]} components={CodeBlock}>{item.attributes.blogContent.slice(0, 100)}</ReactMarkdown>
-                                                    <div className="flex items-center flex-wrap ">
+                                                    <ReactMarkdown className="leading-relaxed text-gray-200 mb-3" rehypePlugins={[rehypeRaw]} components={CodeBlock}>{item.attributes.blogContent.slice(0, 200)}</ReactMarkdown>
+                                                    <div className="flex items-center justify-between flex-wrap ">
                                                         <Link href={`/blog/${item.attributes.slug}`}>
                                                             <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 hover:cursor-pointer">Read More
                                                                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -49,6 +51,12 @@ const spaceBlog = ({ posts }) => {
                                                                 </svg>
                                                             </a>
                                                         </Link>
+{/* 
+                                                        <div className='like-btn flex items-center'>
+                                                            <button onClick={() => handleLike()}>
+                                                                {liked ? <ThumbUpOutlinedIcon className="text-red-600" /> : <ThumbUpIcon className="text-red-600" />} {likeCount} {likeCount === 1 ? "Like" : "Likes"}
+                                                            </button>
+                                                        </div> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -65,10 +73,10 @@ const spaceBlog = ({ posts }) => {
 }
 
 export async function getServerSideProps(context) {
-    // const host = ""
     const api_key = process.env.NEXTAUTH_SECRET
+    const URL = `${process.env.NEXT_PUBLIC_API_URL}/api/posts?filters[category][categoryName][$contains]=Space&populate=*`
 
-    const response = await fetch(`http://localhost:1337/api/posts?filters[category][categoryName][$contains]=Space&populate=*`, {
+    const response = await fetch(URL, {
         method: "GET",
         headers: {
             "Content_Type": "application/json",

@@ -5,24 +5,12 @@ import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import CodeBlock from "../components/CodeBlock"
 import rehypeRaw from 'rehype-raw';
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+// import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+// import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 const codingBlog = ({ posts }) => {
 
   const [loading, setLoading] = useState(true)
-  const[liked, setLiked] = useState(false)
-  const[likeCount, setLikeCount] = useState(1)
-
-  const handleLike = () => {
-    setLiked(!liked)
-    if (liked === false) {
-      setLikeCount(likeCount - 1)
-    }
-    else {
-      setLikeCount(likeCount+1)
-    }
-  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -33,7 +21,7 @@ const codingBlog = ({ posts }) => {
   const title = "Learn coding through my Journey and Experience"
   const video = "codingAnimation.mp4"
   const description = "In this blog there will be blogs about Data Structures and Algorithms Questions, learning different languages like Python, Java, Javascript, C++ etc, Web Development and many more advance topics like Blockchain, Machine Learning, AI."
-  
+
   return (
     <div>
       {!loading ? (
@@ -62,12 +50,14 @@ const codingBlog = ({ posts }) => {
                                 </svg>
                               </a>
                             </Link>
-
-                            <div className='like-btn flex items-center'>
-                              <button onClick={() => handleLike()}>
-                                {liked ? <ThumbUpOutlinedIcon className="text-red-600" /> : <ThumbUpIcon className="text-red-600" />} {likeCount} {likeCount === 1 ? "Like" : "Likes"}
+                            {/* <div className='like-btn flex items-center'>
+                              <button onClick={() => item.attributes.like += 1}>
+                              {liked ? <ThumbUpOutlinedIcon className="text-red-600" /> : <ThumbUpIcon className="text-red-600" />}
+                              <ThumbUpOutlinedIcon className="text-red-600" /> 
+                                {item.attributes.like}
+                                {likeCount} {posts.attributes.like === 1 ? "Like" : "Likes"}
                               </button>
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       </div>
@@ -83,10 +73,10 @@ const codingBlog = ({ posts }) => {
 }
 
 export async function getServerSideProps(context) {
-  // const host = "http://localhost:1337"
   const api_key = process.env.NEXTAUTH_SECRET
+  const URL = `${process.env.NEXT_PUBLIC_API_URL}/api/posts?filters[category][categoryName][$contains]=Coding&populate=*`
 
-  const response = await fetch(`http://localhost:1337/api/posts?filters[category][categoryName][$contains]=Coding&populate=*`, {
+  const response = await fetch(URL, {
     method: "GET",
     headers: {
       "Content_Type": "application/json",
