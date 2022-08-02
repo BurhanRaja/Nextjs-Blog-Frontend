@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
-import Footer from '../components/Footer'
+import React, {useState} from "react"
+import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
-import '../styles/globals.css'
+import "../styles/globals.css"
 import "../styles/Navbar.css"
 
 

@@ -1,13 +1,13 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react"
+import Link from "next/link"
 
 const Signup = () => {
 
     return (
         <div>
             <section className="h-screen">
-                <div className='text-center'>
-                    <h1 className='text-3xl mt-10 font-semibold'>SignUp</h1>
+                <div className="text-center">
+                    <h1 className="text-3xl mt-10 font-semibold">SignUp</h1>
                 </div>
                 <div className="container px-6 pb-10 pt-1 h-full">
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
@@ -47,10 +47,10 @@ const Signup = () => {
                                 </div>
                             </form>
 
-                            <div className='mt-5 text-sm flex justify-center'>
+                            <div className="mt-5 text-sm flex justify-center">
                                 <span>Already have an account?</span>
-                                <Link href='/login'>
-                                    <a className='text-blue-600 ml-2 hover:cursor-pointer'>Login</a>
+                                <Link href="/login">
+                                    <a className="text-blue-600 ml-2 hover:cursor-pointer">Login</a>
                                 </Link>
                             </div>
                         </div>

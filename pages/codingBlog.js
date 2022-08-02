@@ -1,12 +1,12 @@
-import React, { useState, useEffect, Fragment } from 'react'
-import LandingPage from '../components/LandingPage'
-import LoadingScreen from '../components/LoadingScreen'
-import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
+import React, { useState, useEffect, Fragment } from "react"
+import LandingPage from "../components/LandingPage"
+import LoadingScreen from "../components/LoadingScreen"
+import Link from "next/link"
+import ReactMarkdown from "react-markdown"
 import CodeBlock from "../components/CodeBlock"
-import rehypeRaw from 'rehype-raw';
-// import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-// import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import rehypeRaw from "rehype-raw";
+// import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+// import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
 const CodingBlog = ({ posts }) => {
 
@@ -26,11 +26,11 @@ const CodingBlog = ({ posts }) => {
     <div>
       {!loading ? (
         <Fragment>
-          <div className='bg-gray-800'>
+          <div className="bg-gray-800">
             <LandingPage title={title} video={video} description={description} />
             <section className="text-gray-600 body-font">
-              <div className='text-center'>
-                <h2 className='text-3xl text-white font-semibold'>Coding Blogs</h2>
+              <div className="text-center">
+                <h2 className="text-3xl text-white font-semibold">Coding Blogs</h2>
               </div>
               <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-wrap -m-4">
@@ -50,7 +50,7 @@ const CodingBlog = ({ posts }) => {
                                 </svg>
                               </a>
                             </Link>
-                            {/* <div className='like-btn flex items-center'>
+                            {/* <div className="like-btn flex items-center">
                               <button onClick={() => item.attributes.like += 1}>
                               {liked ? <ThumbUpOutlinedIcon className="text-red-600" /> : <ThumbUpIcon className="text-red-600" />}
                               <ThumbUpOutlinedIcon className="text-red-600" /> 
